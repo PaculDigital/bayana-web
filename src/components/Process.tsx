@@ -1,5 +1,7 @@
 // =============================================================
-// PROSES / ALUR PENERBITAN — Bayana Publishing
+// PROSES / ALUR PENERBITAN — PT Bayana Hasana Duna
+// (revisi Perpusnas 20Oct26: bahasa dinetralkan —
+//  komponen cadangan, tidak dirender template 2 aktif)
 // 5 langkah jelas dari naskah hingga terbit & tersebar.
 // =============================================================
 
@@ -21,8 +23,8 @@ const STEPS = [
   },
   {
     n: "04",
-    t: "Legalitas & Cetak",
-    d: "Pengurusan ISBN/HKI, proofing, lalu produksi sesuai paket Anda.",
+    t: "Administrasi & Cetak",
+    d: "Administrasi penerbitan, proofing, lalu produksi sesuai layanan Anda.",
   },
   {
     n: "05",

@@ -195,6 +195,18 @@ cari '085111555246'      "nomor telepon 2 tampil"
 hilang '813 1710 7179'   "nomor tidak ditulis berspasi-aneh"
 cari 'wa.me/6285111555248' "tombol WA sekali klik (FAB + kontak + footer)" 3
 
+echo "=== 12. KOMPONEN CADANGAN BERSIH DARI JANJI ISBN (temuan AI 20Oct26) ==="
+# Services/Faq/Process/Testimonials tidak dirender template 2 aktif,
+# tapi tetap diperiksa di level sumber — kalau saklar template dibalik,
+# janji ISBN tidak boleh muncul kembali.
+for _f in src/components/Services.tsx src/components/Faq.tsx src/components/Process.tsx src/components/Testimonials.tsx; do
+  if grep -qi "ber-ISBN" "$_f"; then
+    echo "GAGAL  : $_f masih mengandung janji ber-ISBN"; G=$((G+1))
+  else
+    echo "LULUS  : $_f bebas janji ber-ISBN"; L=$((L+1))
+  fi
+done
+
 echo
 echo "HASIL: $L LULUS / $G GAGAL"
 [ "$G" -eq 0 ] || exit 1

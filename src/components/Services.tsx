@@ -1,5 +1,7 @@
 // =============================================================
-// LAYANAN — Bayana Publishing (palet terang akademis)
+// LAYANAN — PT Bayana Hasana Duna (palet terang akademis)
+// (revisi Perpusnas 20Oct26: janji ISBN/Scholar dinetralkan —
+//  komponen cadangan, tidak dirender template 2 aktif)
 // Menerbitkan BUKU dan JURNAL ILMIAH.
 // Kartu minimal premium: putih bersih + aksen emas tipis + ikon garis halus.
 // =============================================================
@@ -8,7 +10,7 @@
 const LAYANAN_BUKU = [
   {
     t: "Terbitkan Buku",
-    d: "Dari naskah utuh hingga terbit — kami pandu prosesnya, baik indie maupun ber-ISBN.",
+    d: "Dari naskah utuh hingga terbit — kami pandu seluruh prosesnya dengan standar penerbitan yang benar.",
     i: "M12 3l1.9 5.6 5.6 1.9-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z",
   },
   {
@@ -27,8 +29,8 @@ const LAYANAN_BUKU = [
     i: "M3 5h18M3 12h18M3 19h18",
   },
   {
-    t: "ISBN, HKI & Ebook",
-    d: "Legalitas ISBN nasional, HKI, dan versi digital agar karya tersebar luas.",
+    t: "Legalitas & Ebook",
+    d: "Pendampingan administrasi penerbitan, pencatatan HKI, dan versi digital agar karya tersebar luas.",
     i: "M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1",
   },
 ];
@@ -46,7 +48,7 @@ const LAYANAN_JURNAL = [
   },
   {
     t: "ISSN, DOI & Indeksasi",
-    d: "Ajukan ISSN, daftarkan DOI, dan indeks ke Google Scholar / Garuda.",
+    d: "Layanan pengajuan ISSN, pendaftaran DOI, dan optimasi keterlihatan artikel ilmiah.",
     i: "M21 12a9 9 0 11-9-9M21 3l-9 9M15 3h6v6",
   },
   {

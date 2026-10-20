@@ -3,7 +3,9 @@
 import { useState } from "react";
 
 // =============================================================
-// FAQ — Bayana Publishing (accordion ringkas)
+// FAQ — PT Bayana Hasana Duna (accordion ringkas)
+// (revisi Perpusnas 20Oct26: janji ISBN dinetralkan —
+//  komponen cadangan, tidak dirender template 2 aktif)
 // =============================================================
 
 const QA = [
@@ -13,15 +15,15 @@ const QA = [
   },
   {
     q: "Apakah Bayana menerima naskah skripsi/tesis untuk dijadikan buku?",
-    a: "Ya. Layanan konversi skripsi/tesis/disertasi menjadi buku ber-ISBN adalah salah satu layanan utama kami.",
+    a: "Ya. Layanan konversi skripsi/tesis/disertasi menjadi buku adalah salah satu layanan utama kami.",
   },
   {
     q: "Apakah bisa menerbitkan jurnal ilmiah?",
     a: "Bisa. Kami membantu kelola jurnal online (OJS), penerbitan artikel, hingga pendaftaran ISSN, DOI, dan akreditasi SINTA.",
   },
   {
-    q: "Bagaimana dengan hak cipta dan ISBN?",
-    a: "ISBN nasional dan pendaftaran HKI kami uruskan. Penulis tetap pemegang hak cipta atas karyanya.",
+    q: "Bagaimana dengan hak cipta dan administrasi penerbitan?",
+    a: "Administrasi penerbitan (termasuk pengajuan ISBN sesuai prosedur resmi) dan pendaftaran HKI kami dampingi. Penulis tetap pemegang hak cipta atas karyanya.",
   },
 ];
 
