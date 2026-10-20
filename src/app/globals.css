@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  /* Bayana Publishing — emas/gold premium di atas latar gelap */
+  --bayana-bg: #0a0705;          /* hitam-cokelat pekat */
+  --bayana-gold: #d4af37;        /* emas klasik */
+  --bayana-gold-light: #f0d585;  /* emas terang / highlight */
+  --bayana-cream: #f5ecd7;       /* krem tua (teks utama) */
+  --bayana-gold-muted: #9a7b2f;  /* emas redup */
+  --bayana-line: #3a2f1c;        /* garis halus */
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-inter);
+  --font-script-caveat: var(--font-caveat);
+  --font-script-dancing: var(--font-dancing);
+
+  /* Palet TERANG akademis (untuk section konten di bawah hero) */
+  --acad-bg: #faf7f0;          /* putih-gading hangat */
+  --acad-bg-soft: #f3ede1;     /* gading lebih dalam utk blok */
+  --acad-ink: #23272f;         /* navy-abu gelap (teks utama) */
+  --acad-ink-soft: #4a4f58;    /* teks sekunder */
+  --acad-gold: #a8852c;        /* emas agak tua (tetap kontras di terang) */
+  --acad-gold-soft: #c9a95a;
+  --acad-line: #e4dccb;        /* garis halus */
+}
+
+@theme inline {
+  --color-background: var(--bayana-bg);
+  --color-foreground: var(--bayana-cream);
+  --color-gold: var(--bayana-gold);
+  --color-gold-light: var(--bayana-gold-light);
+  --color-gold-muted: var(--bayana-gold-muted);
+  --color-cream: var(--bayana-cream);
+  --color-line: var(--bayana-line);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+  --font-script-caveat: var(--font-caveat);
+  --font-script-dancing: var(--font-dancing);
+  --color-acad-bg: var(--acad-bg);
+  --color-acad-soft: var(--acad-bg-soft);
+  --color-acad-ink: var(--acad-ink);
+  --color-acad-ink-soft: var(--acad-ink-soft);
+  --color-acad-gold: var(--acad-gold);
+  --color-acad-gold-soft: var(--acad-gold-soft);
+  --color-acad-line: var(--acad-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bayana-bg);
+  color: var(--bayana-cream);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* Gradient emas untuk judul */
+.gold-gradient-text {
+  background: linear-gradient(120deg, #fff3c4 0%, #ffe28a 30%, #f5c542 60%, #e8b923 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Aksen script: warna emas TERANG solid + glow halus — TAJAM (bukan gradient/buram) */
+.gold-accent-text {
+  color: #ffd75e;
+  text-shadow:
+    0 0 6px rgba(255, 215, 100, 0.55),
+    0 0 18px rgba(255, 200, 70, 0.25),
+    0 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Font tulisan tangan (aksen) */
+.font-script-caveat { font-family: var(--font-script-caveat), cursive; }
+.font-script-dancing { font-family: var(--font-script-dancing), cursive; }
+
+/* Font serif akademis (heading section konten terang) */
+.font-display-serif { font-family: var(--font-serif), Georgia, "Times New Roman", serif; }
+
+/* Bitter — kesan koran lama/perjuangan; dipakai kalimat pengantar (01Oct26) */
+.font-bitter { font-family: var(--font-bitter), Georgia, "Times New Roman", serif; }
+
+/* Gradient emas versi terang (cocok di atas bg gading) */
+.gold-gradient-light {
+  background: linear-gradient(120deg, #8a6d1f 0%, #b8932f 45%, #8a6d1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Aksen script/em kata di atas latar gelap: emas solid + OUTLINE putih tipis */
+.accent-gold-stroke {
+  color: #ffd97a;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* Marquee galeri buku: berjalan SANGAT LAMBAT kanan->kiri, pause saat hover */
+@keyframes bayana-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.book-gallery-track {
+  animation: bayana-marquee 90s linear infinite;
+  will-change: transform;
+}
+.book-gallery:hover .book-gallery-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-gallery-track { animation: none; }
+}
+
+/* Scrollbar gelap untuk konsistensi */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0705; }
+::-webkit-scrollbar-thumb { background: #4a3c1f; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

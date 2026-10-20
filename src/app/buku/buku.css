@@ -1,0 +1,1787 @@
+/* buku.css — Gaya katalog & toko buku Bayana (buku.bayana.id).
+ *
+ * PALET: SOFT GREEN (putusan Bos 22Sep26 — BUKAN coklat gelap).
+ * Emas tetap dipakai sebagai aksen supaya masih senada dengan bayana.id.
+ *
+ * MOBILE FRIENDLY: semua ukuran memakai satuan yang aman di layar kecil,
+ * grid otomatis jadi 1-2 kolom, tombol cukup besar untuk disentuh jari.
+
+   ⚠️ Semua kelas di berkas ini WAJIB dipakai — kalau tidak dipakai,
+      lebih baik dihapus daripada jadi sampah.
+*/
+
+.toko {
+  --hijau-tua: #2f5d50;
+  --hijau: #3d7a68;
+  --hijau-muda: #e8f2ee;
+  --hijau-sangat-muda: #f2f8f5;
+  --hijau-teks: #1f4a3d;
+  --buku-emas: #c8a24a;
+  --buku-emas-muda: #e6cd8b;
+  --buku-bg: #faf8f3;
+  --buku-soft: #f4f1e8;
+  --buku-ink: #22302c;
+  --buku-ink-soft: #5c6a64;
+  --buku-line: #dfe4de;
+  --buku-merah: #d64545;
+  --buku-merah-muda: #fdeaea;
+  /* ── SOFT ORANGE — warna tombol "Cek Pesanan" (permintaan Bos 22Sep26).
+     PUTUSAN BOS: Opsi B — orange MUDA LEMBUT + tulisan coklat tua.
+     ⚠️ Kenapa tulisan coklat, bukan putih: Wulan UKUR kontrasnya.
+        Putih di atas #f5a95c hanya 2,4:1 — di bawah ambang keterbacaan
+        4,5:1, jadi tulisannya kabur. Coklat tua #3a2a12 di atas orange
+        yang sama = 7,05:1 → jauh lebih aman dibaca, terutama di HP
+        yang kena cahaya matahari. Tombolnya TETAP terang & lembut. */
+  --oranye-lembut: #f5a95c;
+  --oranye-lembut-tua: #ef9f4e;
+  --oranye-lembut-muda: #fdf3e7;
+  --oranye-tulisan: #3a2a12;
+
+  background: var(--buku-bg);
+  color: var(--buku-ink);
+  min-height: 100vh;
+}
+
+.toko a {
+  color: inherit;
+}
+
+/* ── PITA + NAVIGASI ─────────────────────────────────────────────── */
+
+.toko-pita {
+  background: linear-gradient(90deg, #2f5d50, #3d7a68);
+  color: #eaf5f0;
+  padding: 8px 16px;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.toko-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(250, 248, 243, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--buku-line);
+}
+
+.toko-nav-dalam {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 11px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toko-merek {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.toko-merek b {
+  font-size: 16.5px;
+  color: var(--hijau-teks);
+  letter-spacing: 0.02em;
+}
+
+.toko-merek span {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--buku-emas);
+}
+
+.toko-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toko-menu > a.teks {
+  font-size: 13.5px;
+  text-decoration: none;
+  color: var(--buku-ink-soft);
+  white-space: nowrap;
+}
+
+.toko-menu > a.teks:hover {
+  color: var(--hijau);
+}
+
+/* ── TOMBOL "CEK PESANAN" (permintaan Bos 22Sep26) ──────────────────────
+   Dulu: ikon kaca pembesar bulat tanpa tulisan → pembeli tidak tahu
+   gunanya. Sekarang: tombol bertulisan jelas, warna SOFT ORANGE (Opsi B).
+
+   🚨 TEGURAN BOS — JANGAN DIULANG: Wulan pernah menambahkan aturan
+   @media (max-width:700px) yang MENGECILKAN tombol ini jadi lingkaran
+   38px dan MENYEMBUNYIKAN tulisannya, dengan alasan "menu atas di HP
+   kepadatan". Akibatnya di HP tombol kembali menjadi IKON SAJA —
+   membingungkan, persis yang Bos minta dibuang. Bos: "Kok masih ikon
+   search…"
+   ⇒ ATURAN ITU SUDAH DIHAPUS. Tulisan "Cek Pesanan" WAJIB SELALU
+     TAMPIL di semua ukuran layar. Kalau menu terasa sempit, yang
+     dikurangi UKURAN HURUF/PADDING-nya, BUKAN tulisannya. */
+.toko-cek-pesanan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--oranye-lembut);
+  color: var(--oranye-tulisan);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.toko-cek-pesanan svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.toko-cek-pesanan:hover {
+  background: var(--oranye-lembut-tua);
+  color: var(--oranye-tulisan);
+}
+
+/* ⚠️ DUA TULISAN di dalam tombol (keduanya tetap TERLIHAT sebagai kata,
+   tidak pernah disembunyikan):
+     · layar ≥381px → "Cek Pesanan" penuh
+     · layar ≤380px → "Cek" (didekan karena menu sudah berisi merek +
+       Katalog + Pesanan Saya + keranjang, sehingga kata panjang
+       TERPOTONG tepi layar — TERUKUR dari potret HP 320px 22Sep26)
+   Cara kerja: peramban hanya menggambar SATU di antaranya. Ini BUKAN
+   `display:none` pada tulisan satu-satunya — jadi tombolnya tetap
+   bertulisan jelas di ukuran layar mana pun. */
+.toko-cek-pesanan .teks-pendek { display: none; }
+
+@media (max-width: 380px) {
+  .toko-cek-pesanan .teks-panjang { display: none; }
+  .toko-cek-pesanan .teks-pendek { display: inline; }
+}
+
+/* Layar sempit: tombol DIPERKECIL (huruf & padding), tetap BERTULISAN.
+   🚨 TERUKUR 22Sep26 dari potret HP: dengan huruf 12px + padding 12px,
+   tulisan "Cek Pesanan" terpotong tepi kanan. Sekarang huruf 11.5px,
+   padding 10px, dan pintasan teks di ≤380px (lihat aturan di atas). */
+@media (max-width: 640px) {
+  .toko-menu { gap: 7px; }
+  .toko-cek-pesanan {
+    padding: 9px 11px;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .toko-cek-pesanan svg { width: 15px; height: 15px; }
+  .toko-nav-dalam { padding: 9px 11px; gap: 6px; }
+  .toko-merek b { font-size: 15px; }
+  /* "Katalog" & "Pesanan Saya" tetap ada — hanya hurufnya dirapatkan */
+  .toko-menu a.teks { font-size: 12px; }
+}
+
+@media (max-width: 420px) {
+  .toko-nav-dalam { padding: 9px 9px; gap: 4px; }
+  .toko-menu { gap: 5px; }
+  .toko-cek-pesanan { padding: 8px 9px; font-size: 11px; gap: 4px; }
+  .toko-cek-pesanan svg { width: 14px; height: 14px; }
+  /* Keranjang dirapatkan juga supaya tidak terpotong tepi layar. */
+  .toko-keranjang { padding: 9px 11px; }
+  .toko-keranjang svg { width: 19px; height: 19px; }
+  /* ⚠️ "Buku" di samping merek TIDAK boleh disembunyikan — Bos menegur
+     22Sep26 karena tulisan "BAYANA BUKU" sempat hilang. Merek "BAYANA
+     BUKU" adalah satu-satunya jalan kembali ke halaman depan sekarang. */
+}
+
+/* ══ POPUP "CEK PESANAN" ══════════════════════════════════════════════
+   Permintaan Bos: "Kalo bisa waktu di klik muncul popup saja, tidak
+   perlu satu halaman penuh." */
+.popup-lapis {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 18px 14px;
+  background: rgba(20, 35, 30, 0.55);
+  overflow-y: auto;
+}
+
+.popup-kotak {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 6vh;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 18px 20px;
+  box-shadow: 0 18px 50px rgba(10, 30, 22, 0.28);
+  border-top: 5px solid var(--oranye-lembut);
+}
+
+.popup-kepala {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.popup-kepala b {
+  font-size: 18px;
+  color: var(--hijau-teks);
+}
+
+.popup-tutup {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--buku-line);
+  background: #fff;
+  color: var(--buku-ink-soft);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.popup-tutup:hover {
+  background: var(--buku-soft);
+  color: var(--buku-ink);
+}
+
+.popup-ket {
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--buku-ink-soft);
+}
+
+.popup-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.popup-input {
+  flex: 1 1 150px;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 2px solid var(--buku-line);
+  border-radius: 10px;
+  font-size: 16px;   /* ≥16px supaya HP tidak memperbesar halaman sendiri */
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  letter-spacing: 0.06em;
+  color: var(--buku-ink);
+  background: #fff;
+}
+
+.popup-input:focus {
+  outline: none;
+  border-color: var(--oranye-lembut);
+}
+
+.popup-hasil {
+  margin-top: 14px;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.popup-gagal {
+  background: var(--buku-merah-muda);
+  border-left: 4px solid var(--buku-merah);
+  color: #8a2b2b;
+}
+
+.popup-berhasil {
+  background: var(--hijau-sangat-muda);
+  border-left: 4px solid var(--hijau);
+  text-align: center;
+}
+
+.popup-no {
+  margin: 0;
+  font-family: ui-monospace, monospace;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--hijau-teks);
+  word-break: break-all;
+}
+
+.popup-status {
+  display: inline-block;
+  margin: 8px 0 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--oranye-lembut);
+  color: var(--oranye-tulisan);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.popup-baris {
+  margin: 4px 0 0;
+  color: var(--buku-ink-soft);
+  text-align: left;
+}
+
+.popup-tautan {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--hijau);
+  text-decoration: underline;
+}
+
+/* Di HP, kolom & tombol di dalam popup menjadi satu baris penuh */
+@media (max-width: 480px) {
+  .popup-form { flex-direction: column; }
+  .popup-form .toko-btn { width: 100%; }
+  .popup-kotak { margin-top: 3vh; }
+}
+
+/* ── TOMBOL KERANJANG ────────────────────────────────────────────────
+   ⚠️ CACAT 22Sep26: ikon memakai stroke="currentColor" ikut warna teks
+   induk (hijau) di atas latar hijau → TENGGELAM, yang kelihatan cuma
+   bulatan. WAJIB putih eksplisit. */
+
+.toko-keranjang {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hijau);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 10px 15px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(61, 122, 104, 0.26);
+  flex: 0 0 auto;
+}
+
+.toko-keranjang:hover {
+  background: var(--hijau-tua);
+}
+
+.toko-keranjang svg {
+  width: 21px;
+  height: 21px;
+  display: block;
+  color: #fff;
+  stroke: #fff;
+}
+
+.toko-keranjang .lencana {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: var(--buku-emas);
+  color: #3a2c08;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--buku-bg);
+  line-height: 1;
+}
+
+/* ── WADAH HALAMAN ───────────────────────────────────────────────── */
+
+.toko-wadah {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 26px 18px 70px;
+}
+
+.toko-crumbs {
+  font-size: 12px;
+  color: var(--buku-ink-soft);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.toko-crumbs a {
+  text-decoration: none;
+  color: var(--hijau);
+}
+
+.toko-crumbs span {
+  opacity: 0.5;
+  margin: 0 6px;
+}
+
+.toko-h1 {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(22px, 4.6vw, 34px);
+  font-weight: 600;
+  line-height: 1.22;
+  margin: 0 0 8px;
+  color: var(--hijau-teks);
+}
+
+.toko-h2 {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(17px, 3.4vw, 21px);
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--hijau-teks);
+}
+
+.toko-ket {
+  font-size: 13.5px;
+  color: var(--buku-ink-soft);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.toko-kecil {
+  font-size: 11.5px;
+  color: var(--buku-ink-soft);
+  line-height: 1.65;
+}
+
+/* ── ALAT CARI + SARING ──────────────────────────────────────────── */
+
+.toko-cari {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0 14px;
+  flex-wrap: wrap;
+}
+
+.toko-cari input {
+  flex: 1 1 220px;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 13px 15px;
+  border: 1px solid var(--buku-line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--buku-ink);
+}
+
+.toko-cari input:focus {
+  outline: 2px solid rgba(61, 122, 104, 0.28);
+  border-color: var(--hijau);
+}
+
+.toko-saring {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.toko-saring a {
+  font-size: 12.5px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--buku-line);
+  background: #fff;
+  text-decoration: none;
+  color: var(--buku-ink-soft);
+  white-space: nowrap;
+}
+
+.toko-saring a:hover,
+.toko-saring a.aktif {
+  background: var(--hijau);
+  border-color: var(--hijau);
+  color: #fff;
+}
+
+/* ── ETALASE (grid kartu buku) ───────────────────────────────────── */
+
+.etalase {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+  gap: 22px 18px;
+}
+
+.kartu-buku {
+  display: block;
+  text-decoration: none;
+}
+
+.kartu-buku-cover {
+  perspective: 900px;
+}
+
+.kartu-buku-cover svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 12px 22px rgba(34, 48, 44, 0.2);
+  transition: transform 0.35s ease;
+}
+
+.kartu-buku:hover .kartu-buku-cover svg {
+  transform: translateY(-5px) rotateY(-5deg);
+}
+
+.kartu-buku-genre {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hijau);
+  font-weight: 700;
+  margin: 12px 0 5px;
+}
+
+.kartu-buku-judul {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 7px;
+  color: var(--buku-ink);
+}
+
+.kartu-buku-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.kartu-buku-rating b {
+  font-size: 12.5px;
+}
+
+.kartu-buku-rating span {
+  font-size: 11px;
+  color: var(--buku-ink-soft);
+}
+
+.kartu-buku-harga {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--hijau-tua);
+  margin: 8px 0 0;
+}
+
+/* ── HALAMAN DETAIL BUKU ─────────────────────────────────────────── */
+
+.detail-atas {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.detail-atas > .kiri {
+  position: sticky;
+  top: 84px;
+}
+
+.detail-cover svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 18px 34px rgba(34, 48, 44, 0.25);
+}
+
+.detail-kdt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--buku-emas);
+  margin: 0 0 8px;
+}
+
+.detail-penulis {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--hijau-teks);
+  margin: 0 0 3px;
+}
+
+.detail-afiliasi {
+  font-size: 12.5px;
+  color: var(--buku-ink-soft);
+  margin: 0 0 14px;
+}
+
+.detail-sub {
+  font-size: 14px;
+  color: var(--buku-ink-soft);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.detail-harga-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 18px 20px;
+  background: var(--hijau-sangat-muda);
+  border: 1px solid #d5e0da;
+  border-radius: 14px;
+  margin: 18px 0;
+}
+
+.detail-harga {
+  font-size: 27px;
+  font-weight: 800;
+  color: var(--hijau-tua);
+  line-height: 1;
+}
+
+.detail-harga-ket {
+  font-size: 11.5px;
+  color: var(--buku-ink-soft);
+  margin: 5px 0 0;
+}
+
+/* ── TABEL IDENTITAS BUKU ────────────────────────────────────────── */
+
+.tabel-identitas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 6px 0 0;
+}
+
+.tabel-identitas th,
+.tabel-identitas td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--buku-line);
+  vertical-align: top;
+}
+
+.tabel-identitas th {
+  width: 38%;
+  font-weight: 600;
+  color: var(--buku-ink-soft);
+  background: var(--hijau-sangat-muda);
+}
+
+/* ── KOTAK / PANEL UMUM ──────────────────────────────────────────── */
+
+.toko-panel {
+  background: #fff;
+  border: 1px solid var(--buku-line);
+  border-radius: 16px;
+  padding: 24px 26px;
+  margin-bottom: 18px;
+}
+
+.toko-blok {
+  margin-top: 34px;
+}
+
+.toko-daun {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toko-daun li {
+  padding: 9px 0 9px 34px;
+  border-bottom: 1px dashed var(--buku-line);
+  position: relative;
+  font-size: 13.5px;
+  line-height: 1.6;
+  counter-increment: bab;
+}
+
+.toko-daun li:last-child {
+  border-bottom: none;
+}
+
+.toko-daun li::before {
+  content: counter(bab, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 9px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--buku-emas);
+  font-variant-numeric: tabular-nums;
+}
+
+.toko-daun {
+  counter-reset: bab;
+}
+
+.toko-ayat {
+  font-size: 13.5px;
+  line-height: 1.78;
+  margin: 0 0 12px;
+}
+
+/* ── TOMBOL ──────────────────────────────────────────────────────── */
+
+.toko-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  /* MOBILE: cukup besar untuk disentuh jari */
+  min-height: 46px;
+}
+
+.toko-btn svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.toko-btn-utama {
+  background: var(--hijau);
+  color: #fff;
+}
+
+/* ⚠️ Keluhan Bos 22Sep26: "Tombol lanjut isi alamat kok masih hitam
+   tulisannya, harusnya putih jadi terlihat."
+   Penegasan !important dipasang supaya TIDAK ada aturan lain (termasuk
+   bawaan peramban untuk <button>) yang bisa menimpanya. */
+.toko-btn-utama,
+button.toko-btn-utama {
+  color: #ffffff !important;
+}
+
+/* Tombol "Lihat Status" di halaman Cek Pesanan — SOFT ORANGE Opsi B,
+   senada dengan tombol "Cek Pesanan" di menu atas (permintaan Bos). */
+.toko-btn-cek-pesanan,
+button.toko-btn-cek-pesanan {
+  background: var(--oranye-lembut);
+  color: var(--oranye-tulisan) !important;
+}
+
+.toko-btn-cek-pesanan:hover {
+  background: var(--oranye-lembut-tua);
+}
+
+.toko-btn-utama:hover {
+  background: var(--hijau-tua);
+}
+
+/* ══ KARTU BUKTI PESANAN ══════════════════════════════════════════════
+   Permintaan Bos 22Sep26: "Buat nomor pesanan terlihat Besar dan mudah
+   dilihat" + pembeli harus punya DOKUMENTASI pesanannya.
+
+   Ukuran huruf nomor memakai clamp(): mengecil sendiri di HP sempit,
+   membesar di layar lebar — jadi selalu MUAT dan selalu BESAR.
+   Diukur paling kecil 26px (HP 360px) sampai 40px (laptop). */
+.kartu-bukti {
+  border: 2px dashed var(--oranye-lembut);
+  background: var(--oranye-lembut-muda);
+  border-radius: 14px;
+  padding: 18px 16px;
+  text-align: center;
+}
+
+.kartu-bukti-label {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #8a5a1e;
+  text-transform: uppercase;
+}
+
+.kartu-bukti-no {
+  margin: 0;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: clamp(26px, 8.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  color: var(--hijau-teks);
+  background: #ffffff;
+  border: 2px solid var(--oranye-lembut);
+  border-radius: 12px;
+  padding: 14px 10px;
+  word-break: break-all;
+  /* nomor tidak boleh terpotong di layar sempit — dibungkus ke baris baru */
+  overflow-wrap: anywhere;
+}
+
+.kartu-bukti-hint {
+  margin: 12px 0 0;
+  font-size: 13.5px;
+  color: var(--buku-ink-soft);
+  line-height: 1.55;
+}
+
+.kartu-bukti-tombol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+/* Tombol "Salin nomor" & "Simpan bukti pesanan" — SOFT ORANGE Opsi B. */
+.toko-btn-salin,
+.toko-btn-simpan {
+  min-height: 46px;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 2px solid var(--oranye-lembut);
+  background: #ffffff;
+  color: #8a5a1e;
+}
+
+.toko-btn-salin {
+  background: var(--oranye-lembut);
+  color: var(--oranye-tulisan);
+}
+
+.toko-btn-salin:hover,
+.toko-btn-simpan:hover {
+  background: var(--oranye-lembut-tua);
+  color: var(--oranye-tulisan);
+}
+
+/* Di HP, dua tombol jadi selebar layar supaya mudah ditekan jempol */
+@media (max-width: 480px) {
+  .kartu-bukti-tombol .toko-btn {
+    width: 100%;
+  }
+}
+
+.kartu-bukti-cara {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--buku-ink-soft);
+  background: #ffffff;
+  border-left: 3px solid var(--oranye-lembut);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.toko-btn-emas {
+  background: var(--buku-emas);
+  color: #3a2c08;
+}
+
+.toko-btn-garis {
+  background: #fff;
+  color: var(--hijau-teks);
+  border: 1.5px solid var(--buku-line);
+  font-weight: 600;
+}
+
+.toko-btn-garis:hover {
+  border-color: var(--hijau);
+}
+
+.toko-btn-kecil {
+  font-size: 12.5px;
+  padding: 9px 16px;
+  min-height: 38px;
+}
+
+.toko-btn-lebar {
+  width: 100%;
+}
+
+.toko-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── BIDANG ISIAN ────────────────────────────────────────────────── */
+
+.toko-bidang {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+/* ── DUA KOLOM BERDAMPINGAN (Kecamatan | Kelurahan, Kode pos | Catatan) ──
+   Di HP otomatis menumpuk satu per satu supaya tetap nyaman diisi. */
+.toko-baris-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+
+@media (max-width: 560px) {
+  .toko-baris-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── TANDA WAJIB DIISI (permintaan Bos 22Sep26:
+      "belum ada kolom wajib diisi") ────────────────────────────────── */
+.toko-wajib {
+  color: #c0392b;
+  font-weight: 800;
+}
+
+/* Kolom yang belum diisi diberi garis merah supaya mudah dilihat. */
+.toko-bidang input.toko-kurang,
+.toko-bidang textarea.toko-kurang,
+.toko-bidang select.toko-kurang {
+  border-color: #c0392b !important;
+  background: #fff6f5;
+}
+
+.toko-bidang label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--buku-ink-soft);
+}
+
+.toko-bidang input,
+.toko-bidang textarea,
+.toko-bidang select {
+  font-family: inherit;
+  /* 16px = HP tidak auto-zoom saat mengetik */
+  font-size: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--buku-line);
+  border-radius: 11px;
+  background: #fff;
+  color: var(--buku-ink);
+  width: 100%;
+}
+
+.toko-bidang textarea {
+  min-height: 104px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.toko-bidang input:focus,
+.toko-bidang textarea:focus {
+  outline: 2px solid rgba(61, 122, 104, 0.28);
+  border-color: var(--hijau);
+}
+
+.toko-baris-bidang {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── PESAN (berhasil / gagal) ────────────────────────────────────── */
+
+.toko-pesan {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.6;
+  border-radius: 11px;
+  padding: 12px 14px;
+  margin: 0 0 16px;
+}
+
+.toko-pesan svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.toko-pesan-berhasil {
+  background: var(--hijau-muda);
+  color: var(--hijau-teks);
+  border: 1px solid #cfe4da;
+}
+
+/* ⚠️ Pesan gagal WAJIB merah — supaya tidak tertukar dengan kabar baik */
+.toko-pesan-gagal {
+  background: var(--buku-merah-muda);
+  color: #8f2626;
+  border: 1px solid #f3c9c9;
+}
+
+/* ── KERANJANG ───────────────────────────────────────────────────── */
+
+.butir-keranjang {
+  display: grid;
+  grid-template-columns: 28px 64px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--buku-line);
+}
+
+.butir-keranjang:last-of-type {
+  border-bottom: none;
+}
+
+.butir-keranjang .centang {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--hijau);
+  cursor: pointer;
+}
+
+.butir-keranjang .mini-cover svg {
+  width: 64px;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  box-shadow: 0 5px 11px rgba(34, 48, 44, 0.2);
+}
+
+.butir-keranjang .info h4 {
+  font-size: 14.5px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.butir-keranjang .info p {
+  font-size: 12px;
+  color: var(--buku-ink-soft);
+  margin: 0;
+}
+
+.butir-keranjang .kanan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.butir-keranjang .harga-baris {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--hijau-tua);
+}
+
+.atur-jumlah {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--buku-line);
+  border-radius: 9px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.atur-jumlah button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: #fff;
+  color: var(--hijau-teks);
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.atur-jumlah button:hover {
+  background: var(--hijau-muda);
+}
+
+.atur-jumlah span {
+  min-width: 34px;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.paut-keranjang {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--buku-line);
+  margin-top: 4px;
+}
+
+.hapus-butir {
+  background: none;
+  border: none;
+  color: var(--buku-merah);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+
+/* kotak ringkasan belanja */
+.ringkas-belanja {
+  position: sticky;
+  top: 84px;
+}
+
+.baris-hitung {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 13.5px;
+  padding: 9px 0;
+  color: var(--buku-ink-soft);
+}
+
+.baris-hitung.total {
+  border-top: 1px solid var(--buku-line);
+  margin-top: 8px;
+  padding-top: 14px;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--hijau-tua);
+}
+
+/* ── PESANAN SAYA (4 ikon kategori) ──────────────────────────────── */
+
+.pesanan-saya {
+  background: #fff;
+  border: 1px solid var(--buku-line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.pesanan-saya-kepala {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--buku-line);
+  flex-wrap: wrap;
+}
+
+.pesanan-saya-kepala h2 {
+  font-size: 15.5px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.pesanan-saya-kepala a {
+  font-size: 12.5px;
+  color: var(--hijau);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.baris-kategori {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px 8px;
+}
+
+.kategori {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  padding: 6px 4px;
+  border-radius: 12px;
+}
+
+.kategori:hover {
+  background: var(--hijau-sangat-muda);
+}
+
+.kategori-ikon {
+  position: relative;
+  color: var(--hijau-tua);
+}
+
+.kategori-ikon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.kategori-ikon .lencana-angka {
+  position: absolute;
+  top: -7px;
+  right: -11px;
+  background: var(--buku-merah);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+
+.kategori p {
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+}
+
+/* kartu satu pesanan */
+.kartu-pesanan {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--buku-line);
+  flex-wrap: wrap;
+}
+
+.kartu-pesanan:last-child {
+  border-bottom: none;
+}
+
+.no-pesanan {
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hijau-teks);
+  margin: 0 0 4px;
+  letter-spacing: 0.04em;
+}
+
+.tgl-pesanan {
+  font-size: 11.5px;
+  color: var(--buku-ink-soft);
+  margin: 0 0 8px;
+}
+
+.judul-pesanan {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+
+.ket-pesanan {
+  font-size: 12px;
+  color: var(--buku-ink-soft);
+  margin: 0;
+}
+
+.kanan-pesanan {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.lencana-status {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.lencana-belum_bayar {
+  background: var(--buku-merah-muda);
+  color: #9c2b2b;
+}
+
+.lencana-dikemas {
+  background: var(--hijau-muda);
+  color: var(--hijau-teks);
+}
+
+.lencana-dikirim {
+  background: #e3eefb;
+  color: #1e4a8a;
+}
+
+.lencana-selesai {
+  background: #f7edd6;
+  color: #7a5c12;
+}
+
+.harga-pesanan {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--hijau-teks);
+  margin: 0;
+}
+
+/* ── LACAK PESANAN (satu pesanan) ────────────────────────────────── */
+
+.kepala-lacak {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.pita-langkah {
+  display: flex;
+  margin: 24px 0 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.langkah {
+  flex: 1 1 0;
+  min-width: 74px;
+  text-align: center;
+  position: relative;
+}
+
+.langkah::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: var(--buku-line);
+}
+
+.langkah:first-child::before {
+  display: none;
+}
+
+.langkah.lewat::before {
+  background: var(--hijau);
+}
+
+.langkah .titik {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  margin: 0 auto 9px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: #fff;
+  border: 2px solid var(--buku-line);
+  color: #b3c0ba;
+  position: relative;
+  z-index: 2;
+}
+
+.langkah.lewat .titik {
+  background: var(--hijau);
+  border-color: var(--hijau);
+  color: #fff;
+}
+
+.langkah.kini .titik {
+  background: var(--buku-emas);
+  border-color: var(--buku-emas);
+  color: #3a2c08;
+}
+
+.langkah p {
+  font-size: 11.5px;
+  margin: 0;
+  line-height: 1.35;
+  color: var(--buku-ink-soft);
+}
+
+.langkah.kini p {
+  color: var(--hijau-teks);
+  font-weight: 700;
+}
+
+.langkah.lewat p {
+  color: var(--hijau);
+  font-weight: 600;
+}
+
+.riwayat-baris {
+  display: flex;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--buku-line);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.riwayat-baris:last-child {
+  border-bottom: none;
+}
+
+.riwayat-baris .waktu {
+  color: var(--buku-ink-soft);
+  font-size: 12px;
+  min-width: 150px;
+}
+
+.riwayat-baris .apa {
+  font-weight: 600;
+}
+
+/* ── ULASAN ──────────────────────────────────────────────────────── */
+
+.ringkas-ulasan {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  padding: 20px 22px;
+  background: var(--hijau-sangat-muda);
+  border: 1px solid #d5e0da;
+  border-radius: 14px;
+  flex-wrap: wrap;
+}
+
+.angka-ulasan {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--hijau-tua);
+  line-height: 1;
+  margin: 0;
+}
+
+.satu-ulasan {
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--buku-line);
+}
+
+.satu-ulasan:last-child {
+  border-bottom: none;
+}
+
+.ulasan-kepala {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.tanda-contoh {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--hijau);
+  background: var(--hijau-muda);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.ulasan-isi {
+  font-size: 13.5px;
+  line-height: 1.72;
+  margin: 0 0 6px;
+}
+
+.ulasan-nama {
+  font-size: 11.5px;
+  color: var(--buku-ink-soft);
+  margin: 0;
+}
+
+/* ── KARTU HUBUNGI PENERBIT ──────────────────────────────────────── */
+
+.dua-kolom {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 22px;
+}
+
+/* ── HALAMAN PEMBAYARAN: URUTAN DI HP ──────────────────────────────
+ * Di HP: KOTAK BAYAR DULU (QRIS + tombol "Saya sudah bayar"), rincian
+ * menyusul — supaya pembeli tidak perlu menggulir panjang mencari cara
+ * bayar (cacat ketemu dari mata 22Sep26).
+ * Di laptop: tetap 2 kolom seperti biasa.
+ * ⚠️ Memakai `order` pada grid — TIDAK menyalin isi, jadi tidak ada
+ *    kemungkinan tampil ganda.
+ */
+.kolom-bayar {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.kolom-bayar > div:first-child {
+  order: 2;   /* kotak bayar → KANAN di laptop */
+}
+
+.kolom-bayar > div:last-child {
+  order: 1;   /* rincian → KIRI di laptop */
+}
+
+@media (max-width: 860px) {
+  .kolom-bayar {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Di HP: rincian ke BAWAH, kotak bayar ke ATAS */
+  .kolom-bayar > div:first-child {
+    order: 1;
+  }
+
+  .kolom-bayar > div:last-child {
+    order: 2;
+  }
+}
+
+.kartu-email {
+  background: linear-gradient(150deg, #2f5d50, #3d7a68);
+  border-radius: 16px;
+  padding: 26px 24px;
+  color: #eaf5f0;
+}
+
+.kartu-email .lingkaran {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(230, 205, 139, 0.55);
+  display: grid;
+  place-items: center;
+  color: var(--buku-emas-muda);
+  margin-bottom: 15px;
+}
+
+.kartu-email .lingkaran svg {
+  width: 24px;
+  height: 24px;
+}
+
+.kartu-email h3 {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.kartu-email .alamat {
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  color: var(--buku-emas-muda);
+  font-weight: 700;
+  margin: 0 0 14px;
+  word-break: break-all;
+}
+
+.kartu-email .ket {
+  font-size: 12.5px;
+  color: #cfe6dd;
+  margin: 0 0 18px;
+  line-height: 1.68;
+}
+
+.kartu-email table {
+  font-size: 12.5px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kartu-email td {
+  padding: 6px 0;
+  color: #cfe6dd;
+  vertical-align: top;
+}
+
+.kartu-email td:first-child {
+  width: 92px;
+  color: #a4c4b8;
+}
+
+.toko-form-email {
+  background: var(--hijau-sangat-muda);
+  border: 1px solid #d5e0da;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* ── ADMIN ───────────────────────────────────────────────────────── */
+
+.tabel-admin {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tabel-admin th,
+.tabel-admin td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--buku-line);
+  vertical-align: top;
+}
+
+.tabel-admin th {
+  background: var(--hijau-sangat-muda);
+  color: var(--buku-ink-soft);
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tabel-admin tr:hover td {
+  background: #fbfcfa;
+}
+
+.toko-kosong {
+  text-align: center;
+  padding: 46px 20px;
+  color: var(--buku-ink-soft);
+}
+
+.toko-kosong h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--buku-ink);
+  margin: 0 0 8px;
+}
+
+/* ── RESPONSIF (MOBILE) ──────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .detail-atas {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .detail-atas > .kiri {
+    position: static;
+    max-width: 230px;
+    margin: 0 auto;
+  }
+
+  .dua-kolom {
+    grid-template-columns: 1fr;
+  }
+
+  .ringkas-belanja {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .toko-wadah {
+    padding: 20px 14px 60px;
+  }
+
+  .toko-nav-dalam {
+    padding: 9px 14px;
+    gap: 8px;
+  }
+
+  .toko-menu {
+    gap: 9px;
+  }
+
+  /* 🚨 TEGURAN BOS 22Sep26 — DULU di sini ada `.toko-menu>a.teks{display:none}`
+     yang MENYEMBUNYIKAN "Katalog" & "Pesanan Saya" di layar ≤640px.
+     Akibatnya menu atas di HP hanya menyisakan DUA IKON (kaca pembesar &
+     keranjang): pembeli tidak punya jalan ke katalog dari menu, dan
+     tombol "Cek Pesanan" tampak seperti ikon search yang membingungkan.
+     Bos: "Kok masih ikon search… membingungkan."
+     ⇒ SEKARANG teksnya DITAMPILKAN (hanya ukurannya yang dirapatkan). */
+  .toko-menu > a.teks {
+    font-size: 12.5px;
+  }
+
+  .etalase {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 14px;
+  }
+
+  .butir-keranjang {
+    grid-template-columns: 26px 54px 1fr;
+    gap: 12px;
+    row-gap: 10px;
+  }
+
+  .butir-keranjang .kanan {
+    grid-column: 2 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .baris-kategori {
+    padding: 16px 4px;
+  }
+
+  .kategori-ikon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .kategori p {
+    font-size: 11px;
+  }
+
+  .toko-baris-bidang {
+    grid-template-columns: 1fr;
+  }
+
+  .toko-btn {
+    width: 100%;
+  }
+
+  .toko-btn-kecil {
+    width: auto;
+  }
+
+  .detail-harga {
+    font-size: 23px;
+  }
+
+  .kartu-pesanan {
+    flex-direction: column;
+  }
+
+  .kanan-pesanan {
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .riwayat-baris .waktu {
+    min-width: 0;
+  }
+
+  /* tabel admin bisa digeser ke samping, tidak memaksa halaman melebar */
+  .tabel-admin-bungkus {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

@@ -1,0 +1,81 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# ═══════════════════════════════════════════════════════════════
+# ATURAN BAYANA-WEB (Wulan, 19Okt26) — repo GitHub
+# ═══════════════════════════════════════════════════════════════
+
+# Folder kerja & arsip (TIDAK masuk repo — keputusan Bos)
+/_arsip/
+/_sketsa/
+/_potret/
+/.t1-uji/
+/.hermes/
+
+# Database & data pelanggan (JANGAN PERNAH masuk repo)
+/data-db/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Rahasia & kunci
+/.env
+/.env.local
+/.env.*.local
+*.pem
+*.key
+/.jwt_oo_secret
+
+# Berkas sementara kerja
+*.bak
+*.bak-*
+*.bak_*
+*~
+
+# Sketsa & potret kerja di root (bukan bagian aplikasi)
+/_sketsa_*
+/_potret_*
+/_galeri_*
+/_cek_*
+_*.png
+_*.jpg
