@@ -104,8 +104,13 @@ cari 'wa.me/6285111555248'                 "tombol WA 085111555248" 2
 hilang '812-XXXX-XXXX'                       "WA placeholder lama dihapus"
 
 echo "=== 5c. TAUTAN PO PAK — SALINAN LOKAL (02Okt26) ==="
-cari 'dokumen/KEPMEN-39-M-KEP-2026-Juknis-PAK-Dosen.pdf' "tautan PO PAK ke salinan LOKAL"
+# 20Oct26: surat terbuka (Introduction) DISEMBUNYIKAN dari beranda atas
+# perintah Bos → tautan tidak dirender; periksa BERKASNYA, bukan HTML.
+if grep -qF 'dokumen/KEPMEN-39-M-KEP-2026-Juknis-PAK-Dosen.pdf' src/components/Introduction.tsx; then
+  echo "LULUS  : tautan PO PAK ke salinan LOKAL (di berkas Introduction)"; L=$((L+1))
+else echo "GAGAL  : tautan PO PAK hilang dari src/components/Introduction.tsx"; G=$((G+1)); fi
 hilang 'lldikti3.kemdiktisaintek.go.id' "tautan lldikti3 (sertifikat cacat) SUDAH dibuang"
+hilang 'Naskah Anda Mengendap' "surat terbuka disembunyikan (saklar 20Oct26)"
 echo "=== 5d. TOMBOL PAKET → WHATSAPP (02Okt26) ==="
 cari 'https://wa.me/6285111555248?text=' "tombol paket mengarah ke WA (nomor + pesan)"
 cari 'Hallo%20Kak%2C' "pesan WA diawali 'Hallo Kak,'"

@@ -10,6 +10,7 @@ import AlurPenerbitan from "@/components/AlurPenerbitan";
 import BookGallery from "@/components/BookGallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { SURAT_TERBUKA_AKTIF } from "@/lib/surat-saklar";
 
 // ── TEMPLATE 1 — versi LIVE produksi lama (utuh dari backup) ──
 import Navbar1 from "@/components/t1/Navbar";
@@ -75,8 +76,10 @@ export default function Home() {
       {/* HERO FORMAL (banner kompak, 220px) */}
       <HeroFormal />
 
-      {/* PENGANTAR — kalimat pengantar + tanda tangan resmi (01Oct26) */}
-      <Introduction />
+      {/* PENGANTAR / SURAT TERBUKA — kalimat pengantar + tanda tangan resmi (01Oct26).
+          DISEMBUNYIKAN sejak 20Oct26 (keputusan Bos: sembunyikan saja, jangan
+          dihapus) — tampilkan lagi via src/lib/surat-saklar.ts */}
+      {SURAT_TERBUKA_AKTIF && <Introduction />}
 
       {/* TENTANG KAMI — profil + visi/misi + komitmen ilmu (revisi Perpusnas 20Oct26) */}
       <TentangKami />
