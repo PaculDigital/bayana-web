@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 # =============================================================
 # GERBANG REVISI 15 BUTIR — bayana.id (dokumen 30Sep2026)
+# REVISI PERPUSNAS 20Oct26 (ACC Bos): menimpa sebagian asersi lama —
+#   • hook hero tanpa janji ISBN
+#   • menu "Paket Harga" → "Layanan"
+#   • fitur "Ber-ISBN Perpusnas"/"Indexing Google Scholar" DIHAPUS
+#   • section Tentang Kami + Alur Penerbitan DITAMBAHKAN
+#   • nama diseragamkan "PT Bayana Hasana Duna", logo baru
+#   • blok Media Sosial placeholder DITAMBAHKAN
 # Jalankan dengan server uji hidup:
 #   PORT=3200 BAYANA_DATA_DIR=/tmp/bayana-uji npx next start
 #   bash _gerbang_revisi15.sh
@@ -29,33 +36,39 @@ hilang () { # pastikan TIDAK ada <pola> <judul>
   else echo "LULUS  : $judul (tidak ada)"; L=$((L+1)); fi
 }
 
-echo "=== 1. HERO (butir 5 · teks direvisi 01Oct26) ==="
+echo "=== 1. HERO (butir 5 · teks direvisi 01Oct26; hook direvisi Perpusnas 20Oct26) ==="
 curl -s "$BASE/" -o /tmp/g15.html
-cari 'Kapan Buku Ber-ISBN Anda Terbit ?' "hook hero (revisi 01Oct26)"
+cari 'Kapan Buku Anda Terbit?' "hook hero (revisi Perpusnas 20Oct26)"
+hilang 'Ber-ISBN' "janji ISBN dihapus dari hero (revisi Perpusnas 20Oct26)"
 cari 'Dari Gagasan Terbitlah Buku Referensi, Buku Monograf, dan Buku Ajar' "baris kedua (revisi 01Oct26)"
 cari 'Beritahu idenya, kami dampingi hingga terbit. BKD dan Jafung jadi aman' "kalimat penutup (revisi 01Oct26)"
 hilang 'Kapan buku Anda, segera terbit?' "hook lama sudah tidak dipakai"
 hilang 'Mulai dari gagasan, referensi' "baris kedua lama sudah tidak dipakai"
+hilang 'ber-ISBN Perpusnas' "frasa ber-ISBN di pengantar dihapus (revisi Perpusnas 20Oct26)"
+hilang 'terindeks Google Scholar' "klaim Scholar dihapus (revisi Perpusnas 20Oct26)"
 cari 'Berbasis PO PAK Dosen dan Regulasi Terbaru' "eyebrow"
 cari 'hero-rak-buku.png'                          "foto rak buku"
-cari 'logo-bayana.png'                            "logo gambar"
+cari 'logo-bayana-hd.png'                         "logo resmi baru (revisi Perpusnas 20Oct26)"
+hilang 'Bayana Publishing'                        "nama lama tidak tampil lagi (revisi Perpusnas 20Oct26)"
 cari '<section id="beranda"'                      "hero tampil tepat 1x" 1
 
-echo "=== 2. MENU (butir 4) ==="
+echo "=== 2. MENU (butir 4; label direvisi Perpusnas 20Oct26) ==="
 cari '>Beranda<'   "menu Beranda"
-cari '>Paket Harga<' "menu Paket Harga"
+cari '>Layanan<'   "menu Layanan (dulu 'Paket Harga')"
+hilang '>Paket Harga<' "label lama Paket Harga dihapus"
 cari '>Katalog<'   "menu Katalog"
 cari '>Kontak<'    "menu Kontak"
 cari 'Lihat Promo' "CTA Promo"
-hilang '>Tentang<'  "menu Tentang dihapus"
-hilang '>Layanan<'  "menu Layanan dihapus"
+hilang '>Tentang<'  "menu Tentang tetap tidak ada"
 hilang 'Beli Buku'  "tombol Beli Buku dihapus (sesuai 'hanya 5 menu')"
 hilang 'Terbitkan Buku</a>' "CTA lama Terbitkan Buku dihapus dari navbar"
 
-echo "=== 3. SECTION DIHAPUS (butir 6-13) ==="
-hilang 'id="tentang"' "VisiMisi/Tentang tidak dirender"
+echo "=== 3. SECTION (butir 6-13; direvisi Perpusnas 20Oct26) ==="
+cari 'id="tentang"' "section Tentang Kami tampil (revisi Perpusnas 20Oct26)"
+cari 'menyebarluaskan ilmu pengetahuan' "pernyataan komitmen ilmu (revisi Perpusnas 20Oct26)"
+cari 'id="alur"' "section Alur Penerbitan tampil (revisi Perpusnas 20Oct26)"
+cari 'Administrasi Penerbitan' "langkah administrasi (bahasa netral, bukan janji ISBN)"
 hilang 'id="layanan"' "Services/Layanan tidak dirender"
-hilang 'id="proses"'  "Process/Alur tidak dirender"
 hilang 'id="faq"'     "FAQ tidak dirender"
 hilang 'Kenapa Pilih Kami' "WhyUs/Mengapa Bayana tidak dirender"
 hilang 'Testimoni'    "Testimoni tidak dirender"
@@ -71,11 +84,12 @@ cari '500.000' "harga Referensi (dokumen Paket Harga)"
 cari '1.000.000' "harga Monograf (dokumen Paket Harga)"
 cari '300.000' "harga Buku Ajar (dokumen Paket Harga)"
 cari 'penawaran spesial' "catatan bawah (revisi 01Oct26)"
-cari 'Indexing Google Scholar' "fitur Google Scholar (typo 'Schooler' diperbaiki 01Oct26)"
+hilang 'Indexing Google Scholar' "janji indexing dihapus (revisi Perpusnas 20Oct26)"
 hilang 'Schooler' "typo 'Schooler' sudah tidak ada"
 cari 'KUM 40 poin' "KUM Referensi 40 poin"
 cari 'KUM 20 poin' "KUM Monograf/Ajar 20 poin"
-cari 'Ber-ISBN Perpusnas' "fitur Ber-ISBN Perpusnas"
+hilang 'Ber-ISBN Perpusnas' "janji ISBN dihapus dari fitur (revisi Perpusnas 20Oct26)"
+cari 'Pendampingan administrasi penerbitan' "fitur pengganti (revisi Perpusnas 20Oct26)"
 cari 'Berkas siap upload ke Sister' "fitur Berkas Sister"
 cari 'Paling Populer' "label Paling Populer tampil"
 cari 'Minimal 3 penulis' "min 3 penulis (Referensi)"
@@ -128,7 +142,13 @@ cari '1709260023459'             "NIB"
 cari '1000000011174122'          "NPWP"
 cari 'Jatiasih'                  "alamat kantor"
 cari 'Shopee'                    "marketplace Shopee"
-cari 'PT. Bayana Hasana Duna'    "nama PT"
+cari 'PT Bayana Hasana Duna'    "nama PT konsisten (revisi Perpusnas 20Oct26)"
+# Media sosial placeholder (permintaan Bos 20Oct26) — URL asli menyusul
+cari 'Media Sosial'             "blok Media Sosial tampil"
+cari 'aria-label="Instagram"'   "ikon Instagram"
+cari 'aria-label="Facebook"'    "ikon Facebook"
+cari 'aria-label="YouTube"'     "ikon YouTube"
+cari 'aria-label="LinkedIn"'    "ikon LinkedIn"
 # ---- bagian 12 (DIREVISI 01Oct26): EMAIL = GMAIL (permintaan Bos)
 #  Bos 01Oct26: "Email, admin@bayana.id di ganti aslinya saja" →
 #  bayanahasanaduna@gmail.com + bayanapublishing@gmail.com
@@ -136,9 +156,7 @@ cari 'bayanahasanaduna@gmail.com' "email 1 (gmail asli)"
 cari 'bayanapublishing@gmail.com' "email 2 (gmail asli)"
 hilang 'admin@bayana.id'  "email admin@bayana.id tidak tampil lagi"
 hilang 'support@bayana.id' "email support@bayana.id tidak tampil lagi"
-# Media sosial dihapus (permintaan Bos 01Oct26)
-hilang 'Media Sosial'      "label Media Sosial dihapus"
-hilang 'Instagram, YouTube, LinkedIn' "daftar media sosial dihapus"
+# Media sosial: DITAMBAHKAN kembali sebagai placeholder (permintaan Bos 20Oct26)
 
 echo "=== 7. TOMBOL WA MELAYANG (butir 1) ==="
 cari 'wa.me/6285111555248' "total tautan WA (floating + tombol kontak)" 2

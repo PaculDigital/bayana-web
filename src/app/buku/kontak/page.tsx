@@ -8,7 +8,7 @@ import Link from "next/link";
 import FormKontak from "@/components/buku/FormKontak";
 
 export const metadata = {
-  title: "Hubungi Penerbit — Bayana Publishing",
+  title: "Hubungi Penerbit — PT Bayana Hasana Duna",
 };
 
 function IkonSurat() {
@@ -52,7 +52,7 @@ export default function HalamanKontak() {
             <tbody>
               <tr>
                 <td>Penerbit</td>
-                <td>Bayana Publishing</td>
+                <td>PT Bayana Hasana Duna</td>
               </tr>
               <tr>
                 <td>Kirim naskah</td>

@@ -1,32 +1,37 @@
 // =============================================================
-// PAKET & HARGA PENERBITAN BUKU — Bayana Publishing
-// Sumber: dokumen "Paket Harga.pdf" (Bos, 01Oct2026) — harga & fitur PERSIS.
+// LAYANAN PENERBITAN BUKU — PT Bayana Hasana Duna
+// Sumber harga: dokumen "Paket Harga.pdf" (Bos, 01Oct2026) — nominal PERSIS.
 // ⚠️ Jangan ubah nominal tanpa dokumen baru dari Bos.
+//
+// Revisi Perpusnas 20Oct26 (ACC Bos):
+//   • "Paket" → "Layanan" (bukan jualan paket, melainkan layanan penerbitan)
+//   • Fitur "Ber-ISBN Perpusnas" & "Indexing Google Scholar" DIHAPUS —
+//     Juknis Perpusnas melarang website pemohon menawarkan jasa/fasilitas
+//     pencantuman ISBN. Diganti "Pendampingan administrasi penerbitan".
 // =============================================================
 
 // Nomor WA tujuan (sama dengan tombol WA lain di halaman ini):
 // 085111555248 → format internasional.
 const NOMOR_WA = "6285111555248";
 
-// Pesan siap-kirim per paket (ACC Bos 02Okt26).
-// Pola: "Hallo Kak, ..." + sebut nama paket & poin KUM-nya.
+// Pesan siap-kirim per layanan (ACC Bos 02Okt26; kata "paket" → "layanan" 20Oct26).
+// Pola: "Hallo Kak, ..." + sebut nama layanan & poin KUM-nya.
 function pesanWa(namaPaket: string, kum: string, harga: string, satuan: string): string {
   const kumRingkas = kum.replace(/^Memiliki nilai /, ""); // "KUM 40 poin pelaksanaan penelitian"
   const satuanRapi = satuan.trim();                        // "/ penulis" → "/ penulis"
   const hargaTeks = satuanRapi ? `Rp ${harga}${satuanRapi}` : `Rp ${harga}`;
   return (
-    `Hallo Kak, saya ingin bertanya mengenai paket ${namaPaket} ` +
+    `Hallo Kak, saya ingin bertanya mengenai layanan ${namaPaket} ` +
     `(${kumRingkas}, ${hargaTeks}). ` +
     `Mohon dijelaskan prosedur, syarat, dan estimasi waktunya. Terima kasih.`
   );
 }
 
 const FITUR_UMUM = [
-  "Ber-ISBN Perpusnas",
   "Desain cover dan layout",
   "Editing dan proofreading",
   "Cek plagiarisme",
-  "Indexing Google Scholar",
+  "Pendampingan administrasi penerbitan",
   "Berkas siap upload ke Sister",
 ];
 
@@ -66,10 +71,10 @@ export default function Pricing() {
       <div className="mx-auto max-w-6xl px-6 pt-8 pb-20 md:pt-10 md:pb-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.35em] text-acad-gold">
-            Paket Penerbitan Buku
+            Layanan Penerbitan Buku
           </p>
           <h2 className="font-display-serif text-3xl font-semibold leading-tight text-acad-ink md:text-4xl">
-            Pilih paket yang sesuai kebutuhan Anda.
+            Pilih layanan yang sesuai kebutuhan Anda.
           </h2>
           <p className="mt-4 text-base text-acad-ink-soft">
             Setiap paket bisa disesuaikan. Konsultasi dulu, kami bantu pilih yang paling tepat.

@@ -4,22 +4,22 @@ import { useEffect, useState } from "react";
 import { HERO_AKTIF } from "@/lib/hero-saklar";
 
 // =============================================================
-// NAVBAR — Bayana Publishing (revisi dokumen butir 4, 30Sep2026)
+// NAVBAR — PT Bayana Hasana Duna (revisi dokumen butir 4, 30Sep2026;
+//          revisi Perpusnas 20Oct26: "Paket Harga" → "Layanan")
 //
-// MENU FINAL = HANYA 5 butir (dokumen verbatim):
-//   Beranda · Paket Harga · Katalog · Kontak · CTA (Lihat Promo)
-// Menu lama (Tentang, Layanan, Beli Buku) DILARANG dikembalikan
-// tanpa perintah Bos — dokumen: "Menunya dihapus, dirubah menjadi
-// hanya : Beranda, Paket Harga, Kataloq, Kontak, CTA".
+// MENU = 5 butir:
+//   Beranda · Layanan · Katalog · Kontak · CTA (Lihat Promo)
+// Menu lama (Tentang, Beli Buku) DILARANG dikembalikan
+// tanpa perintah Bos.
 //
-// Logo = gambar (public/logo-bayana.png, versi dipangkas & transparan).
+// Logo = gambar (public/logo-bayana-hd.png, logo resmi transparan).
 // Mode: hero formal (terang) → navbar SELALU solid gading;
 //       hero sinematik (gelap) → transparan di atas, solid setelah scroll.
 // =============================================================
 
 const LINKS = [
   { href: "#beranda", label: "Beranda" },
-  { href: "#paket", label: "Paket Harga" },
+  { href: "#paket", label: "Layanan" },
   { href: "#katalog", label: "Katalog" },
   { href: "#kontak", label: "Kontak" },
 ];
@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* Logo (gambar — sesuai dokumen butir 3) */}
         <a href="#beranda" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-bayana.png" alt="Bayana Publishing" className="h-10 w-auto md:h-11" />
+          <img src="/logo-bayana-hd.png" alt="PT Bayana Hasana Duna" className="h-10 w-auto md:h-11" />
         </a>
 
         {/* Menu desktop — 4 tautan + CTA */}

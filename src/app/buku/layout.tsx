@@ -23,9 +23,9 @@ import { ambilTanda } from "@/lib/tanda-browser";
 import { jumlahDiKeranjang } from "@/lib/keranjang";
 
 export const metadata: Metadata = {
-  title: "Katalog Buku — Bayana Publishing",
+  title: "Katalog Buku — PT Bayana Hasana Duna",
   description:
-    "Katalog buku Bayana Publishing: buku akademik, referensi, dan praktik untuk mahasiswa, dosen, dan praktisi.",
+    "Katalog buku PT Bayana Hasana Duna: buku akademik, referensi, dan praktik untuk mahasiswa, dosen, dan praktisi.",
 };
 
 export default async function BukuLayout({
@@ -50,7 +50,7 @@ export default async function BukuLayout({
 
   return (
     <div className="toko">
-      <div className="toko-pita">Bayana Publishing &middot; Toko Buku</div>
+      <div className="toko-pita">PT Bayana Hasana Duna &middot; Toko Buku</div>
       <TokoNav jumlahKeranjang={jumlahKeranjang} />
       {children}
     </div>

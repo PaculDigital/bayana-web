@@ -3,7 +3,8 @@
 import { useState } from "react";
 
 // =============================================================
-// KONTAK — Bayana Publishing (revisi dokumen butir 14, 30Sep2026)
+// KONTAK — PT Bayana Hasana Duna (revisi dokumen butir 14, 30Sep2026;
+//          revisi Perpusnas 20Oct26: hapus janji "ber-ISBN")
 //
 // • Teks/email/telp/alamat lama DIHAPUS → diganti teks dokumen.
 // • Formulir kirim pesan TIDAK dihapus (tetap), sekarang BENAR-BENAR
@@ -19,7 +20,7 @@ const NOMOR_WA = "6285111555248"; // 085111555248
 const TEKS_DOKUMEN =
   "Prosesnya tidak akan rumit. Tidak harus mengirim naskah sempurna. " +
   "Bahkan cukup dengan beritahu kami gagasan anda. Kami siap menemani " +
-  "dari nol hingga terbit buku ber-ISBN yang sesuai PO PAK dan regulasi " +
+  "dari nol hingga terbit sebagai buku yang sesuai PO PAK dan regulasi " +
   "terbaru untuk kelancaran BKD dan Jafung anda.";
 
 export default function Contact() {

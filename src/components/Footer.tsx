@@ -1,21 +1,24 @@
 import Image from "next/image";
 
 // =============================================================
-// FOOTER 4 KOLOM — Bayana Publishing (revisi dokumen butir 15)
+// FOOTER 4 KOLOM — PT Bayana Hasana Duna
+// (revisi dokumen butir 15; revisi Perpusnas 20Oct26:
+//  nama diseragamkan, janji ISBN dihapus, "Paket Harga" → "Layanan",
+//  tambah Media Sosial placeholder, logo resmi baru)
 // Kolom 1: logo + nama PT + teks + legalitas (SK AHU / NIB / NPWP)
 // Kolom 2: Kontak redaksi (tombol WA — nomor TIDAK ditampilkan, koreksi Bos 30Sep26)
-// Kolom 3: Paket harga + marketplace
+// Kolom 3: Layanan + marketplace
 // Kolom 4: Menu
 // =============================================================
 
 const MENU = [
   { href: "#beranda", label: "Beranda" },
-  { href: "#paket", label: "Paket Harga" },
+  { href: "#paket", label: "Layanan" },
   { href: "#katalog", label: "Katalog" },
   { href: "#kontak", label: "Kontak" },
 ];
 
-const TEKS = "Mitra para dosen dalam meningkatkan kinerja dan menyebarkan gagasan melalui penerbitan buku ber-ISBN yang berbasis pada PO PAK dan regulasi terbaru";
+const TEKS = "Mitra para dosen dalam meningkatkan kinerja dan menyebarkan gagasan melalui penerbitan buku yang berbasis pada PO PAK dan regulasi terbaru";
 
 const LEGALITAS: [string, string][] = [
   ["", "SK.AHU-0074567.AH.01.01."],
@@ -34,6 +37,31 @@ const REDAKSI: [string, string[]][] = [
 const PAKET = ["Buku Referensi", "Monograf", "Buku Ajar"];
 const MARKETPLACE = ["Shopee", "Tokopedia"];
 
+// Media sosial — PLACEHOLDER (20Oct26): URL asli menyusul dari Bos.
+// Ikon kecil, warna emas, aria-label untuk aksesibilitas.
+const SOSMED: { nama: string; href: string; path: string }[] = [
+  {
+    nama: "Instagram",
+    href: "#",
+    path: "M12 2.2c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.7 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85C2.42 3.92 3.94 2.38 7.19 2.23 8.46 2.21 8.84 2.2 12 2.2zm0 3.68a6.12 6.12 0 1 0 0 12.24 6.12 6.12 0 0 0 0-12.24zm0 10.1a3.98 3.98 0 1 1 0-7.96 3.98 3.98 0 0 1 0 7.96zm6.36-10.85a1.43 1.43 0 1 0 0 2.86 1.43 1.43 0 0 0 0-2.86z",
+  },
+  {
+    nama: "Facebook",
+    href: "#",
+    path: "M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H8.2v3h2.5v7h2.8z",
+  },
+  {
+    nama: "YouTube",
+    href: "#",
+    path: "M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26.2 26.2 0 0 0 2 12a26.2 26.2 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26.2 26.2 0 0 0 22 12a26.2 26.2 0 0 0-.4-4.8zM10 15V9l5.2 3L10 15z",
+  },
+  {
+    nama: "LinkedIn",
+    href: "#",
+    path: "M6.94 8.5v12H3.06v-12h3.88zM5 2a2.25 2.25 0 1 1 0 4.5A2.25 2.25 0 0 1 5 2zm5.5 6.5h3.72v1.64h.05c.52-.98 1.79-2.02 3.68-2.02 3.94 0 4.67 2.6 4.67 5.97v6.91h-3.88v-6.13c0-1.46-.03-3.34-2.04-3.34-2.04 0-2.35 1.6-2.35 3.24v6.23H10.5v-12z",
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="border-t border-acad-line bg-[#f6f1e6]">
@@ -41,9 +69,9 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           {/* ── KOLOM 1: identitas PT + legalitas ── */}
           <div>
-            <Image src="/logo-bayana.png" alt="Bayana Publishing" width={180} height={40} className="h-10 w-auto" />
+            <Image src="/logo-bayana-hd.png" alt="PT Bayana Hasana Duna" width={360} height={180} className="h-10 w-auto" />
             <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-acad-ink">
-              PT. Bayana Hasana Duna
+              PT Bayana Hasana Duna
             </p>
             <p className="mt-2 max-w-xs text-sm leading-relaxed text-acad-ink-soft">
               {TEKS}
@@ -92,10 +120,10 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* ── KOLOM 3: paket harga + marketplace ── */}
+          {/* ── KOLOM 3: layanan + marketplace ── */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-acad-ink">
-              Paket Harga
+              Layanan
             </h4>
             <ul className="mt-4 space-y-1.5">
               {PAKET.map((p) => (
@@ -131,12 +159,34 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-acad-line pt-6 sm:flex-row">
+        {/* ── MEDIA SOSIAL (placeholder 20Oct26, URL menyusul) ── */}
+        <div className="mt-12 border-t border-acad-line pt-8 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider text-acad-ink">
+            Media Sosial
+          </p>
+          <div className="mt-4 flex items-center justify-center gap-3">
+            {SOSMED.map((s) => (
+              <a
+                key={s.nama}
+                href={s.href}
+                aria-label={s.nama}
+                title={s.nama}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-acad-gold/40 text-acad-gold transition-colors hover:bg-acad-gold hover:text-white"
+              >
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
+                  <path d={s.path} />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-acad-line pt-6 sm:flex-row">
           <p className="text-xs text-acad-ink-soft">
             © {new Date().getFullYear()} PT Bayana Hasana Duna. Hak cipta dilindungi.
           </p>
           <p className="font-display-serif text-xs text-acad-gold">
-            bayana.id · Bayana Publishing
+            bayana.id · PT Bayana Hasana Duna
           </p>
         </div>
       </div>

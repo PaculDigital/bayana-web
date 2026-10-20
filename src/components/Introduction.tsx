@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 /**
- * Introduction — kalimat pengantar Bayana Publishing.
+ * Introduction — kalimat pengantar PT Bayana Hasana Duna.
  * URUTAN PERSIS mengikuti gambar yang di-ACC Bos (01Oct26):
  *   1. Sub-header emas
  *   2. Hook baris 1 (hitam)
@@ -10,7 +10,9 @@ import Image from "next/image";
  *   5. Paragraf (diawali "Fakta :")
  *   6. GARIS PEMISAH
  *   7. Tagline tebal
- *   8. Salam + TANDA TANGAN RESMI (public/tanda-tangan-bayana.svg) + PT. Bayana Hasana Duna
+ *   8. Salam + TANDA TANGAN RESMI (public/tanda-tangan-bayana.svg) + PT Bayana Hasana Duna
+ *
+ * Revisi Perpusnas 20Oct26: nama diseragamkan; janji ISBN & Google Scholar dihapus.
  */
 export default function Introduction() {
   return (
@@ -51,13 +53,12 @@ export default function Introduction() {
             awal, melainkan bagaimana menerbitkannya secara resmi dan aman.
           </strong>{" "}
           Di sinilah{" "}
-          <strong>Bayana Publishing, PT. Bayana Hasana Duna</strong> berperan
+          <strong>PT Bayana Hasana Duna</strong> berperan
           sebagai mitra resmi berbadan hukum yang memastikan naskah Anda
           menempuh jalur yang benar sejak awal. Naskah Anda akan disunting
           secara profesional hingga <strong>bebas plagiarisme</strong>,{" "}
-          <strong>ber-ISBN Perpusnas</strong> yang sah dan tercatat negara,{" "}
-          <strong>terindeks Google Scholar</strong>, dan{" "}
-          <em>berkasnya siap diunggah ke Sister</em>. Mari bersama kami.
+          diterbitkan secara resmi dengan administrasi penerbitan yang lengkap,
+          dan{" "}<em>berkasnya siap diunggah ke Sister</em>. Mari bersama kami.
         </p>
 
         {/* 5b. Poin KUM (dipisah — tautan PO PAK terbaru tetap buka tab baru)
@@ -87,14 +88,14 @@ export default function Introduction() {
           </p>
           <Image
             src="/tanda-tangan-bayana.svg"
-            alt="Tanda tangan Bayana Publishing"
+            alt="Tanda tangan PT Bayana Hasana Duna"
             width={259}
             height={180}
             className="ml-auto mt-1 h-[92px] w-auto opacity-60"
           />
           {/* PT menempel tanda tangan: tarik naik (margin negatif) */}
           <p className="-mt-4 font-bitter text-[12.5px] tracking-[0.06em] text-[#565b63]">
-            PT. Bayana Hasana Duna
+            PT Bayana Hasana Duna
           </p>
         </div>
 

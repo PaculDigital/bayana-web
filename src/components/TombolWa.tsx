@@ -12,7 +12,7 @@ export default function TombolWa() {
       href={`https://wa.me/${NOMOR}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat WhatsApp Bayana Publishing"
+      aria-label="Chat WhatsApp PT Bayana Hasana Duna"
       className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#128C4A] shadow-[0_8px_24px_rgba(18,140,74,0.4)] transition-transform duration-200 hover:scale-105"
     >
       <svg viewBox="0 0 32 32" className="h-7 w-7 text-white" fill="currentColor" aria-hidden>

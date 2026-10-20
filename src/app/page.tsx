@@ -4,7 +4,9 @@ import { TEMPLATE_AKTIF } from "@/lib/template-saklar";
 import Navbar from "@/components/Navbar";
 import HeroFormal from "@/components/HeroFormal";
 import Introduction from "@/components/Introduction";
+import TentangKami from "@/components/TentangKami";
 import Pricing from "@/components/Pricing";
+import AlurPenerbitan from "@/components/AlurPenerbitan";
 import BookGallery from "@/components/BookGallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -76,8 +78,14 @@ export default function Home() {
       {/* PENGANTAR — kalimat pengantar + tanda tangan resmi (01Oct26) */}
       <Introduction />
 
-      {/* PAKET & HARGA (nama: Buku Referensi · Monograf · Buku Ajar) */}
+      {/* TENTANG KAMI — profil + visi/misi + komitmen ilmu (revisi Perpusnas 20Oct26) */}
+      <TentangKami />
+
+      {/* LAYANAN (nama: Buku Referensi · Monograf · Buku Ajar) */}
       <Pricing />
+
+      {/* ALUR PENERBITAN — 5 langkah kurasi (revisi Perpusnas 20Oct26) */}
+      <AlurPenerbitan />
 
       {/* GALERI BUKU (klik → buku.bayana.id) */}
       <BookGallery />

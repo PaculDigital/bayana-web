@@ -1,5 +1,6 @@
 // =============================================================
-// HERO FORMAL — Bayana Publishing (revisi dokumen butir 5)
+// HERO FORMAL — PT Bayana Hasana Duna (revisi dokumen butir 5;
+//              revisi Perpusnas 20Oct26: hook tanpa janji ISBN)
 //
 // Banner panjang-pendek ala tridarma.id: teks kiri (eyebrow → hook
 // besar → baris kedua → garis emas → kalimat penutup), foto rak buku
@@ -14,7 +15,7 @@
 // =============================================================
 
 const EYEBROW = "Berbasis PO PAK Dosen dan Regulasi Terbaru";
-const HOOK = "Kapan Buku Ber-ISBN Anda Terbit ?";
+const HOOK = "Kapan Buku Anda Terbit?";
 const KATA = "Dari Gagasan Terbitlah Buku Referensi, Buku Monograf, dan Buku Ajar";
 const PENUTUP = "Beritahu idenya, kami dampingi hingga terbit. BKD dan Jafung jadi aman";
 

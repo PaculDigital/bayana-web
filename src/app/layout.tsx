@@ -46,9 +46,9 @@ const bitter = Bitter({
 });
 
 export const metadata: Metadata = {
-  title: "Bayana Publishing — Terbitkan Karya Anda",
+  title: "PT Bayana Hasana Duna — Terbitkan Karya Anda",
   description:
-    "Bayana Publishing — penerbit profesional. Dari naskah menjadi karya abadi.",
+    "PT Bayana Hasana Duna — penerbit buku akademik. Dari naskah menjadi karya abadi.",
 };
 
 export default function RootLayout({
