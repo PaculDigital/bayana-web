@@ -53,8 +53,11 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2.5">
         {/* Logo (gambar — sesuai dokumen butir 3) */}
         <a href="#beranda" className="flex items-center">
+          {/* Pilihan A (ACC Bos 20Oct26): logo diperbesar h-10 → h-12 di mobile.
+              h-12 (48px) di layar 390px = lebar ~325px = 83% layar.
+              Desktop tetap md:h-11 (tidak berubah). */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo-bayana-hd.png" alt="PT Bayana Hasana Duna" className="h-10 w-auto md:h-11" />
+          <img src="/logo-bayana-hd.png" alt="PT Bayana Hasana Duna" className="h-12 w-auto md:h-11" />
         </a>
 
         {/* Menu desktop — 4 tautan + CTA */}

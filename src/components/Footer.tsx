@@ -69,7 +69,8 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           {/* ── KOLOM 1: identitas PT + legalitas ── */}
           <div>
-            <Image src="/logo-bayana-hd.png" alt="PT Bayana Hasana Duna" width={1189} height={176} className="h-10 w-auto" />
+            {/* Pilihan A (ACC Bos 20Oct26): footer ikut h-12 biar konsisten dengan navbar mobile */}
+            <Image src="/logo-bayana-hd.png" alt="PT Bayana Hasana Duna" width={1189} height={176} className="h-12 w-auto" />
             <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-acad-ink">
               PT Bayana Hasana Duna
             </p>
