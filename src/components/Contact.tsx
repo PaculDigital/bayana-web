@@ -4,7 +4,8 @@ import { useState } from "react";
 
 // =============================================================
 // KONTAK — PT Bayana Hasana Duna (revisi dokumen butir 14, 30Sep2026;
-//          revisi Perpusnas 20Oct26: hapus janji "ber-ISBN")
+//          revisi Perpusnas 20Oct26: hapus janji "ber-ISBN";
+//          redaksi kawan REVISI_WEB_8 20Oct26 — ACC Bos)
 //
 // • Teks/email/telp/alamat lama DIHAPUS → diganti teks dokumen.
 // • Formulir kirim pesan TIDAK dihapus (tetap), sekarang BENAR-BENAR
@@ -19,9 +20,8 @@ const NOMOR_WA = "6285111555248"; // 085111555248
 
 const TEKS_DOKUMEN =
   "Prosesnya tidak akan rumit. Tidak harus mengirim naskah sempurna. " +
-  "Bahkan cukup dengan beritahu kami gagasan anda. Kami siap menemani " +
-  "dari nol hingga terbit sebagai buku yang sesuai PO PAK dan regulasi " +
-  "terbaru untuk kelancaran BKD dan Jafung anda.";
+  "Bahkan cukup dengan beritahu kami gagasan anda. Kami siap berdiskusi " +
+  "dan menemani hingga buku terbit dan tersebar.";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -68,7 +68,7 @@ export default function Contact() {
               Hubungi Kami
             </p>
             <h2 className="font-display-serif text-3xl font-semibold leading-tight text-acad-ink md:text-4xl">
-              Mari wujudkan karya Anda menjadi nyata.
+              Mari Wujudkan Buku Anda dan Sebarkan.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-acad-ink-soft">
               {TEKS_DOKUMEN}

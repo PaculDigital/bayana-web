@@ -18,7 +18,7 @@ const MENU = [
   { href: "#kontak", label: "Kontak" },
 ];
 
-const TEKS = "Mitra para dosen dalam meningkatkan kinerja dan menyebarkan gagasan melalui penerbitan buku yang berbasis pada PO PAK dan regulasi terbaru";
+const TEKS = "Mitra anda dalam menyebarkan ilmu pengetahuan melalui buku";
 
 const LEGALITAS: [string, string][] = [
   ["", "SK.AHU-0074567.AH.01.01."],
@@ -84,7 +84,8 @@ export default function Footer() {
                       <span className="font-semibold text-acad-ink">{label}:</span> {nilai}
                     </>
                   ) : (
-                    nilai
+                    // SK AHU: tanpa label + BOLD (usulan kawan REVISI_WEB_8, ACC Bos 20Oct26)
+                    <strong>{nilai}</strong>
                   )}
                 </li>
               ))}

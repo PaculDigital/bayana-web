@@ -1,6 +1,7 @@
 // =============================================================
 // HERO FORMAL — PT Bayana Hasana Duna (revisi dokumen butir 5;
-//              revisi Perpusnas 20Oct26: hook tanpa janji ISBN)
+//              revisi Perpusnas 20Oct26: hook tanpa janji ISBN;
+//              redaksi kawan REVISI_WEB_8 20Oct26 — ACC Bos)
 //
 // Banner panjang-pendek ala tridarma.id: teks kiri (eyebrow → hook
 // besar → baris kedua → garis emas → kalimat penutup), foto rak buku
@@ -14,10 +15,10 @@
 // ⚠️ Hero lama (Hero.tsx) TIDAK disentuh — lihat src/lib/hero-saklar.ts
 // =============================================================
 
-const EYEBROW = "Berbasis PO PAK Dosen dan Regulasi Terbaru";
-const HOOK = "Kapan Buku Anda Terbit?";
-const KATA = "Dari Gagasan Terbitlah Buku Referensi, Buku Monograf, dan Buku Ajar";
-const PENUTUP = "Beritahu idenya, kami dampingi hingga terbit. BKD dan Jafung jadi aman";
+const EYEBROW = "Menyebarkan Ilmu Pengetahuan Melalui Buku";
+const HOOK = "Kapan Buku Anda Terbit dan Tersebar?";
+const KATA = "Dari Gelap Terbitlah Terang. Dari Gagasan Terbitlah Buku yang Mencerahkan";
+const PENUTUP = "Beritahu idenya, kami dampingi dari awal hingga akhir";
 
 export default function HeroFormal() {
   return (

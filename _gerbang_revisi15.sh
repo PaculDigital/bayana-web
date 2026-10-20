@@ -36,17 +36,21 @@ hilang () { # pastikan TIDAK ada <pola> <judul>
   else echo "LULUS  : $judul (tidak ada)"; L=$((L+1)); fi
 }
 
-echo "=== 1. HERO (butir 5 · teks direvisi 01Oct26; hook direvisi Perpusnas 20Oct26) ==="
+echo "=== 1. HERO (butir 5 · redaksi kawan REVISI_WEB_8, ACC Bos 20Oct26) ==="
 curl -s "$BASE/" -o /tmp/g15.html
-cari 'Kapan Buku Anda Terbit?' "hook hero (revisi Perpusnas 20Oct26)"
+cari 'Kapan Buku Anda Terbit dan Tersebar?' "hook hero (redaksi kawan 20Oct26)"
+hilang 'Kapan Buku Anda Terbit?' "hook lama sudah diganti"
 hilang 'Ber-ISBN' "janji ISBN dihapus dari hero (revisi Perpusnas 20Oct26)"
-cari 'Dari Gagasan Terbitlah Buku Referensi, Buku Monograf, dan Buku Ajar' "baris kedua (revisi 01Oct26)"
-cari 'Beritahu idenya, kami dampingi hingga terbit. BKD dan Jafung jadi aman' "kalimat penutup (revisi 01Oct26)"
+cari 'Dari Gelap Terbitlah Terang' "baris kedua (redaksi kawan 20Oct26)"
+hilang 'Dari Gagasan Terbitlah Buku Referensi' "baris kedua lama sudah diganti"
+cari 'Beritahu idenya, kami dampingi dari awal hingga akhir' "kalimat penutup (redaksi kawan 20Oct26)"
+hilang 'BKD dan Jafung jadi aman' "penutup lama sudah diganti"
 hilang 'Kapan buku Anda, segera terbit?' "hook lama sudah tidak dipakai"
 hilang 'Mulai dari gagasan, referensi' "baris kedua lama sudah tidak dipakai"
 hilang 'ber-ISBN Perpusnas' "frasa ber-ISBN di pengantar dihapus (revisi Perpusnas 20Oct26)"
 hilang 'terindeks Google Scholar' "klaim Scholar dihapus (revisi Perpusnas 20Oct26)"
-cari 'Berbasis PO PAK Dosen dan Regulasi Terbaru' "eyebrow"
+cari 'Menyebarkan Ilmu Pengetahuan Melalui Buku' "eyebrow (redaksi kawan 20Oct26)"
+hilang 'Berbasis PO PAK Dosen dan Regulasi Terbaru' "eyebrow lama sudah diganti"
 cari 'hero-rak-buku.png'                          "foto rak buku"
 cari 'logo-bayana-hd.png'                         "logo resmi baru (revisi Perpusnas 20Oct26)"
 hilang 'Bayana Publishing'                        "nama lama tidak tampil lagi (revisi Perpusnas 20Oct26)"
@@ -97,8 +101,11 @@ hilang 'Deskripsi paket sedang disiapkan' "deskripsi placeholder dihapus (harga 
 hilang '>Kolaborasi<'   "nama lama Kolaborasi dihapus"
 hilang '>Eksklusif<'    "nama lama Eksklusif dihapus"
 
-echo "=== 5. KONTAK (butir 14) ==="
+echo "=== 5. KONTAK (butir 14; redaksi kawan REVISI_WEB_8, ACC Bos 20Oct26) ==="
 cari 'Prosesnya tidak akan rumit'            "teks kontak dokumen"
+cari 'hingga buku terbit dan tersebar'       "paragraf kontak (redaksi kawan 20Oct26)"
+cari 'Mari Wujudkan Buku Anda dan Sebarkan'  "judul kontak (redaksi kawan 20Oct26)"
+hilang 'Mari wujudkan karya Anda menjadi nyata' "judul kontak lama sudah diganti"
 cari 'Yuk, Kirim Pesan atau klik tombol WA'  "ajakan WA"
 cari 'wa.me/6285111555248'                 "tombol WA 085111555248" 2
 hilang '812-XXXX-XXXX'                       "WA placeholder lama dihapus"
@@ -127,6 +134,7 @@ echo "=== 6. FOOTER (butir 15) ==="
 # 01Oct26: HTML React menyisipkan <!-- --> antara label dan ":" -> pakai pola
 # yang mengabaikan penanda itu (sed 's/<!-- -->//g' dulu), BUKAN pola mentah.
 cari_bersih 'SK.AHU-0074567.AH.01.01.' "SK AHU tampil (label dihapus atas perintah Bos 02Okt26)"
+cari '<strong>SK.AHU-0074567.AH.01.01.</strong>' "SK AHU bold (usulan kawan 20Oct26)"
 hilang_bersih () { # pastikan TIDAK ada <pola> (tahan penanda React)
   local pola="$1" judul="$2"
   if curl -s "$BASE/" | sed 's/<!-- -->//g' | grep -F -q -- "$pola"; then
@@ -148,6 +156,7 @@ cari '1000000011174122'          "NPWP"
 cari 'Jatiasih'                  "alamat kantor"
 cari 'Shopee'                    "marketplace Shopee"
 cari 'PT Bayana Hasana Duna'    "nama PT konsisten (revisi Perpusnas 20Oct26)"
+cari 'Mitra anda dalam menyebarkan ilmu pengetahuan melalui buku' "teks footer (redaksi kawan 20Oct26)"
 # Media sosial placeholder (permintaan Bos 20Oct26) — URL asli menyusul
 cari 'Media Sosial'             "blok Media Sosial tampil"
 cari 'aria-label="Instagram"'   "ikon Instagram"
